@@ -11,7 +11,7 @@
         <module name="cmict-server-system" />
         <module name="cmict-activiti" />
         <module name="cmict-common-core" />
-        <module name="cmict-monitor" />
+        <module name="cmict-monitor-admin" />
         <module name="cmict-gateway" />
       </profile>
     </annotationProcessing>
@@ -23,6 +23,7 @@
       <module name="cmict-common-core" target="1.8" />
       <module name="cmict-gateway" target="1.8" />
       <module name="cmict-monitor" target="1.8" />
+      <module name="cmict-monitor-admin" target="1.8" />
       <module name="cmict-server" target="1.8" />
       <module name="cmict-server-system" target="1.8" />
     </bytecodeTargetLevel>
@@ -34,6 +35,7 @@
       <module name="cmict-common-core" options="-parameters" />
       <module name="cmict-gateway" options="-parameters" />
       <module name="cmict-monitor" options="-parameters" />
+      <module name="cmict-monitor-admin" options="-parameters" />
       <module name="cmict-server-system" options="-parameters" />
     </option>
   </component>

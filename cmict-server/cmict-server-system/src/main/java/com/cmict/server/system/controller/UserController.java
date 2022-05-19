@@ -8,7 +8,6 @@ import com.cmict.annotation.group.usergroup.UpdateGroup;
 import com.cmict.constant.StringConstant;
 import com.cmict.entity.CmictResponse;
 import com.cmict.entity.QueryRequest;
-import com.cmict.entity.system.ProvineUser;
 import com.cmict.entity.system.Role;
 import com.cmict.entity.system.SystemUser;
 import com.cmict.entity.system.UserRole;
@@ -211,49 +210,4 @@ public class UserController {
         return CmictResponse.SUCCESS;
     }
 
-    @PostMapping("getProvinceUsers")
-    public List<ProvineUser> getProvinceUsers(String users) {
-        String[] split = users.split(",");
-        List<String>  ids = Arrays.asList(split);
-        LambdaQueryWrapper<SystemUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.in(SystemUser::getUserId,ids);
-        List<SystemUser> systemUsers = userService.list(lambdaQueryWrapper);
-        ArrayList<ProvineUser> provineUsers = new ArrayList<>();
-        for (SystemUser systemUser : systemUsers) {
-            ProvineUser provineUser = new ProvineUser();
-            provineUser.setUserId(systemUser.getUserId());
-            provineUser.setUserName(systemUser.getUsername());
-            provineUsers.add(provineUser);
-        }
-        return provineUsers;
-
-    }
-    @PostMapping("getLeaders")
-    public List<ProvineUser> getLeaders(Long roleId) {
-        LambdaQueryWrapper<UserRole> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(UserRole::getRoleId,roleId);
-        List<UserRole> userRoles = userRoleService.list(queryWrapper);
-        List<Long> userIds = userRoles.stream().map(UserRole::getUserId).collect(Collectors.toList());
-        LambdaQueryWrapper<SystemUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.in(SystemUser::getUserId,userIds);
-        List<SystemUser> list = userService.list(lambdaQueryWrapper);
-        ArrayList<ProvineUser> provineUsers = new ArrayList<>();
-        for (SystemUser user : list) {
-            ProvineUser provineUser = new ProvineUser();
-            provineUser.setUserId(user.getUserId());
-            provineUser.setUserName(user.getUsername());
-            provineUsers.add(provineUser);
-        }
-        return provineUsers;
-    }
-    //只查询一个
-    @PostMapping("getOneUserRole")
-    public List<String> getOneUserRole(String userId) {
-        String[] userIds = {String.valueOf(userId)};
-        List<String> roleIdsByUserId = userRoleService.findRoleIdsByUserId(userIds);
-        String[] roleId = {String.valueOf(roleIdsByUserId.get(0))};
-        List<Role> roles = roleService.getRoleByIds(roleId);
-        List<String> collect = roles.stream().map(Role::getRoleName).collect(Collectors.toList());
-        return collect;
-    }
 }

@@ -52,7 +52,7 @@ public class CmictSecurityConfigure extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/oauth/**").authenticated()
-               // .antMatchers("/actuator/**").permitAll()
+                .antMatchers("/actuator/**").permitAll()
                 .and()
                 .csrf().disable();
     }
