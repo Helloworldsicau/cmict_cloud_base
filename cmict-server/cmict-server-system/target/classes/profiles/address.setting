@@ -1,0 +1,13 @@
+
+[HikAddress]
+context = /artemis
+# 获取预览视频URL
+getCamerasUrl = ${HikAddress.context}/api/video/v2/cameras/previewURLs
+#分页获取监控点资源
+getCamerasResources = ${HikAddress.context}/api/resource/v1/cameras
+#查询区域列表
+getNodesByParams = ${HikAddress.context}/api/irds/v2/region/nodesByParams
+#根据条件获取编码设备在线状态接口
+getDeviceStatus = ${HikAddress.context}/api/nms/v1/online/encode_device/get
+#查询编码设备列表
+getEncodeDeviceList = ${HikAddress.context}/api/resource/v2/encodeDevice/search
