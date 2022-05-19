@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <profiles>
+    <profile>
+      <id>oneCode</id>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+          </snapshots>
+          <id>maven-group</id>
+          <name>maven-group</name>
+          <url>http://package.onecode.ict.cmcc/repository/maven-group/</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>cmict-springbootbushuyanshi-demomaven</id>
+          <url>http://package.onecode.ict.cmcc/repository/maven-group/</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <mirrors>
+    <mirror>
+      <id>package-ict</id>
+      <mirrorOf>*</mirrorOf>
+      <name>ict</name>
+      <url>http://package.onecode.ict.cmcc/repository/maven-group/</url>
+    </mirror>
+  </mirrors>
+  <activeProfiles>
+    <activeProfile>oneCode</activeProfile>
+  </activeProfiles>
+</settings>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.cmict</groupId>
+    <artifactId>cmict-cloud</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>../cmict-common</module>
+        <module>../cmict-auth</module>
+        <module>../cmict-gateway</module>
+        <module>../cmict-server</module>
+    </modules>
+    <packaging>pom</packaging>
+    <name>cmict-cloud</name>
+
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.1.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+
+    <properties>
+        <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
+        <com-alibaba-cloud.version>2.1.1.RELEASE</com-alibaba-cloud.version>
+        <spring-boot-admin.version>2.2.0</spring-boot-admin.version>
+        <fastjson.version>1.2.62</fastjson.version>
+        <nimbus-jose-jwt.version>8.19</nimbus-jose-jwt.version>
+        <easy-captcha.version>1.6.2</easy-captcha.version>
+        <mybatis-plus-boot-starter.version>3.2.0</mybatis-plus-boot-starter.version>
+        <swagger-annotations.version>1.5.22</swagger-annotations.version>
+        <easyexcel.version>2.2.6</easyexcel.version>
+        <hutool-all.version>5.6.1</hutool-all.version>
+        <swagger-models.version>1.5.21</swagger-models.version>
+        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+        <dynamic-datasource-spring-boot-starter.version>2.5.7</dynamic-datasource-spring-boot-starter.version>
+        <p6spy.version>3.8.1</p6spy.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${com-alibaba-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

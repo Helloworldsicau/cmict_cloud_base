@@ -1,0 +1,57 @@
+spring:
+  redis:
+    database: 0
+    host: 172.17.32.5
+    port: 6379
+    lettuce:
+      pool:
+        min-idle: 8
+        max-idle: 500
+        max-active: 2000
+        max-wait: 10000
+    timeout: 5000
+    password: shdki67SDw
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 172.17.32.5:8848
+  datasource:
+    dynamic:
+      hikari:
+        connection-timeout: 30000
+        max-lifetime: 1800000
+        max-pool-size: 15
+        min-idle: 5
+        connection-test-query: select 1
+        pool-name: FebsHikariCP
+      primary: base
+      datasource:
+        base:
+          username: root
+          password: shdki67SDw
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://172.17.32.5:3306/cmict_cloud_base?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
+      p6spy: true
+
+security:
+  oauth2:
+    resource:
+      id: ${spring.application.name}
+      user-info-uri: http://172.17.32.5:8301/auth/user
+
+horn:
+# 线上环境将 https://cmdlb.eastcmiot.com/openapi 地址代理为 http://172.16.15.251:8222/openapi
+  url: http://172.17.32.5:8222/openapi
+  name: cmictHorn
+  filePath: /cmict/data/audio
+
+video:
+# 线上环境将 36.137.0.215:1443 地址代理为 172.16.15.251:8222
+  host: 172.17.32.5:8222
+  appKey: 28192784
+  appSecret: 9iAs1xGHUHqd8jaFZ9K2
+
+mas:
+  id: 123
+  pwd: 456
+  serviceId: 789

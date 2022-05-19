@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmict.gateway.mapper.MenuMapper">
+
+    <resultMap id="RoleAndPath" type="menu">
+        <id column="MENU_ID" property="menuId"/>
+        <result column="PARENT_ID" property="parentId"/>
+        <result column="MENU_NAME" property="menuName"/>
+        <result column="PATH" property="path"/>
+        <result column="COMPONENT" property="component"/>
+        <result column="PERMS" property="perms"/>
+        <result column="ICON" property="icon"/>
+        <result column="TYPE" property="type"/>
+        <result column="ORDER_NUM" property="orderNum"/>
+        <result column="CREATE_TIME" property="createTime"/>
+        <result column="MODIFY_TIME" property="modifyTime"/>
+        <collection property="roleList" ofType="role" javaType="java.util.List">
+            <id column="ROLE_ID" jdbcType="INTEGER" property="roleId"/>
+            <result column="ROLE_NAME" jdbcType="VARCHAR" property="roleName"/>
+            <result column="REMARK" jdbcType="VARCHAR" property="remark"/>
+            <result column="ctime" jdbcType="TIMESTAMP" property="createTime"/>
+            <result column="mtime" jdbcType="TIMESTAMP" property="modifyTime"/>
+        </collection>
+    </resultMap>
+
+    <select id="findUserRolePath" resultType="menu" resultMap="RoleAndPath">
+       select t1.MENU_ID,t1.PARENT_ID,t1.MENU_NAME,t1.PATH,t1.COMPONENT,t1.PERMS,
+        t1.ICON,t1.TYPE,t1.ORDER_NUM,t1.CREATE_TIME,t1.MODIFY_TIME,t3.ROLE_ID,t3.ROLE_NAME,t3.REMARK,
+        t3.CREATE_TIME as ctime,t3.MODIFY_TIME as mtime
+        from  t_menu t1
+        LEFT JOIN  t_role_menu t2
+        on t1.MENU_ID = t2.MENU_ID
+        LEFT JOIN t_role t3
+        on t3.ROLE_ID = t2.ROLE_ID
+
+    </select>
+</mapper>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmict.server.system.mapper.EventMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cmict.entity.system.Event">
+        <id column="CASE_NUMBER" property="caseNumber" />
+        <result column="VIDEO_ID" property="videoId" />
+        <result column="DEVICE_ID" property="deviceId" />
+        <result column="DEVICE_NAME" property="deviceName" />
+        <result column="CASE_IMAGE_URI" property="causeImageUri" />
+        <result column="CHECK_IMAGE_URI" property="checkImageUri" />
+        <result column="CASE_VIDEO_URI" property="causeVideoUri" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="ADDRESS" property="address" />
+        <result column="LON" property="lon" />
+        <result column="LAT" property="lat" />
+        <result column="TYPE" property="type" />
+        <result column="DESCRIPTION" property="description" />
+        <result column="REPORT" property="report" />
+        <result column="AREA_ID" property="areaId" />
+        <result column="LOOK" property="look" />
+        <result column="ATTENTION" property="attention" />
+    </resultMap>
+
+    <resultMap id="HighFrequencyIncidentPlaceMap" type="com.cmict.server.system.vo.HighFrequencyIncidentPlaceVO">
+        <result column="ADDRESS" property="address" />
+        <result column="COUNT" property="count" />
+    </resultMap>
+
+    <select id="highFrequencyIncidentPlaceList" resultMap="HighFrequencyIncidentPlaceMap">
+        SELECT ADDRESS, count(ADDRESS) as COUNT FROM t_event
+        <where>
+            <if test="areaId != null and areaId != ''">
+                AND AREA_ID = #{areaId}
+            </if>
+            <if test="type != null and type != ''">
+                AND TYPE = #{type}
+            </if>
+        </where>
+        GROUP BY ADDRESS
+        ORDER BY COUNT DESC
+        LIMIT 0,5
+    </select>
+
+    <select id="findEventDeviceCount" resultType="int">
+        SELECT COUNT(*) FROM (
+            SELECT count(DEVICE_ID) FROM t_event
+            <where>
+                <if test="areaId != null and areaId != ''">
+                    AND t_event.AREA_ID = #{areaId}
+                </if>
+            </where>
+            GROUP BY DEVICE_ID
+            ) AS T
+    </select>
+
+    <select id="todayFindEventDeviceCount" resultType="int">
+        SELECT COUNT(*) FROM (
+            SELECT count(DEVICE_ID) FROM t_event
+            <where>
+                <if test="areaId != null and areaId != ''">
+                    AND t_event.AREA_ID = #{areaId}
+                </if>
+                    AND t_event.CREATE_TIME BETWEEN #{startTime} AND #{endTime}
+            </where>
+            GROUP BY DEVICE_ID
+            ) AS T
+    </select>
+
+    <select id="selectRealTimeEventNotificationList" resultType="com.cmict.server.system.vo.RealTimeEventNotificationVO">
+        SELECT A.*,B.ATTENTION FROM t_event A
+        LEFT JOIN t_event_user B ON B.CASE_NUMBER = A.CASE_NUMBER
+        <where>
+            <if test="areaId != null and areaId != ''">
+                AND A.AREA_ID = #{areaId}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND B.USER_ID = #{userId}
+            </if>
+        </where>
+        ORDER BY A.CREATE_TIME DESC
+        LIMIT 0,20
+    </select>
+
+    <select id="findEventListPage" resultMap="BaseResultMap" parameterType="event">
+        SELECT
+        e.CASE_NUMBER,
+        e.DEVICE_ID,
+        e.DEVICE_NAME,
+        e.CASE_IMAGE_URI,
+        e.CHECK_IMAGE_URI,
+        e.CASE_VIDEO_URI,
+        e.CREATE_TIME,
+        e.ADDRESS,
+        e.LON,
+        e.LAT,
+        e.TYPE,
+        e.DESCRIPTION,
+        e.REPORT,
+        e.AREA_ID,
+        eu.LOOK,
+        eu.ATTENTION
+        FROM
+        t_event e
+        LEFT JOIN t_event_user eu ON (e.CASE_NUMBER = eu.CASE_NUMBER)
+        where 1=1
+        <if test="event.userId != null and event.userId != ''">
+            AND eu.user_id = #{event.userId}
+        </if>
+        <if test="event.areaId != null and event.areaId != ''">
+            AND e.area_id = #{event.areaId}
+        </if>
+        <if test="event.deviceId != null and event.deviceId != ''">
+            AND e.device_id = #{event.deviceId}
+        </if>
+        <if test="event.caseNumber != null and event.caseNumber != ''">
+            AND e.case_number = #{event.caseNumber}
+        </if>
+        <if test="event.createTimeFrom != null and event.createTimeFrom != ''">
+            AND e.create_time &gt; #{event.createTimeFrom}
+        </if>
+        <if test="event.createTimeTo != null and event.createTimeTo != ''">
+            AND e.create_time &lt; #{event.createTimeTo}
+        </if>
+        <if test="event.look != null">
+            AND eu.look = #{event.look}
+        </if>
+        <if test="event.attention != null">
+            AND eu.attention = #{event.attention}
+        </if>
+        <if test="event.report != null">
+            AND e.report = #{event.report}
+        </if>
+        <if test="event.type != null and event.type != ''">
+            AND e.type = #{event.type}
+        </if>
+
+    </select>
+
+    <select id="brightCount" resultType="int">
+        SELECT COUNT(*) FROM t_event A
+        LEFT JOIN t_event_user B ON A.CASE_NUMBER = B.CASE_NUMBER
+        <where>
+            A.DEVICE_ID = #{deviceId}
+            AND A.CREATE_TIME > #{yesterday}
+            AND B.USER_ID = #{userId}
+            AND B.LOOK = 0
+        </where>
+    </select>
+
+    <select id="findEventList" resultMap="BaseResultMap" parameterType="event">
+        SELECT
+        e.CASE_NUMBER,
+        e.DEVICE_ID,
+        e.DEVICE_NAME,
+        e.CASE_IMAGE_URI,
+        e.CASE_VIDEO_URI,
+        e.CREATE_TIME,
+        e.ADDRESS,
+        e.LON,
+        e.LAT,
+        e.DESCRIPTION,
+        e.REPORT
+        FROM
+        t_event e
+        LEFT JOIN t_event_user eu ON (e.CASE_NUMBER = eu.CASE_NUMBER)
+        where 1=1
+        <if test="event.userId != null and event.userId != ''">
+            AND eu.user_id = #{event.userId}
+        </if>
+        <if test="event.areaId != null and event.areaId != ''">
+            AND e.area_id = #{event.areaId}
+        </if>
+        <if test="event.deviceId != null and event.deviceId != ''">
+            AND e.device_id = #{event.deviceId}
+        </if>
+        <if test="event.caseNumber != null and event.caseNumber != ''">
+            AND e.case_number = #{event.caseNumber}
+        </if>
+        <if test="event.createTimeFrom != null and event.createTimeFrom != ''">
+            AND e.create_time &gt; #{event.createTimeFrom}
+        </if>
+        <if test="event.createTimeTo != null and event.createTimeTo != ''">
+            AND e.create_time &lt; #{event.createTimeTo}
+        </if>
+        <if test="event.look != null">
+            AND eu.look = #{event.look}
+        </if>
+        <if test="event.attention != null">
+            AND eu.attention = #{event.attention}
+        </if>
+        <if test="event.report != null">
+            AND e.report = #{event.report}
+        </if>
+        <if test="event.type != null and event.type != ''">
+            AND e.type = #{event.type}
+        </if>
+    </select>
+
+    <select id="eventTypeStatistic" parameterType="event" resultType="com.cmict.server.system.vo.EventTypeStatisticsVO">
+        SELECT
+        e.TYPE as number,
+        e.DESCRIPTION,
+        count(*) as count
+        FROM
+        t_event e
+        LEFT JOIN t_event_user eu ON (e.CASE_NUMBER = eu.CASE_NUMBER)
+        where 1=1
+        <if test="event.userId != null and event.userId != ''">
+            AND eu.user_id = #{event.userId}
+        </if>
+        <if test="event.areaId != null and event.areaId != ''">
+            AND e.area_id = #{event.areaId}
+        </if>
+        <if test="event.deviceId != null and event.deviceId != ''">
+            AND e.device_id = #{event.deviceId}
+        </if>
+        <if test="event.caseNumber != null and event.caseNumber != ''">
+            AND e.case_number = #{event.caseNumber}
+        </if>
+        <if test="event.createTimeFrom != null and event.createTimeFrom != ''">
+            AND e.create_time &gt; #{event.createTimeFrom}
+        </if>
+        <if test="event.createTimeTo != null and event.createTimeTo != ''">
+            AND e.create_time &lt; #{event.createTimeTo}
+        </if>
+        <if test="event.look != null">
+            AND eu.look = #{event.look}
+        </if>
+        <if test="event.attention != null">
+            AND eu.attention = #{event.attention}
+        </if>
+        <if test="event.report != null">
+            AND e.report = #{event.report}
+        </if>
+        group by e.TYPE
+
+    </select>
+</mapper>
