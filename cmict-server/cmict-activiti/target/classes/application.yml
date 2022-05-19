@@ -1,0 +1,47 @@
+server:
+  port: 8501
+
+spring:
+  application:
+    name: CMICT-Server-Activiti
+  profiles:
+    active: dev
+
+mybatis-plus:
+  type-aliases-package: com.cmict.activiti.entity
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    jdbc-type-for-null: null
+  global-config:
+    banner: false
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
+        loggerLevel: BASIC
+  hystrix:
+    enabled: true
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+file:
+  upload:
+    #设置文件上传位置(绝对路径)
+    path: D://temp
+    #设置文件上传后回显位置(相对路径)
+    relative: /images/**
+    #简报目录
+  report:
+    path: D:/report/
+    relative: /file/
+
