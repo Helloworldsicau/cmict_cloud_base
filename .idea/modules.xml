@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cmict-server/cmict-activiti/cmict-activiti.iml" filepath="$PROJECT_DIR$/cmict-server/cmict-activiti/cmict-activiti.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cmict-auth/cmict-auth.iml" filepath="$PROJECT_DIR$/cmict-auth/cmict-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cmict-cloud/cmict-cloud.iml" filepath="$PROJECT_DIR$/cmict-cloud/cmict-cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cmict-common/cmict-common.iml" filepath="$PROJECT_DIR$/cmict-common/cmict-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cmict-common/cmict-common-core/cmict-common-core.iml" filepath="$PROJECT_DIR$/cmict-common/cmict-common-core/cmict-common-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cmict-gateway/cmict-gateway.iml" filepath="$PROJECT_DIR$/cmict-gateway/cmict-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cmict-monitor/cmict-monitor.iml" filepath="$PROJECT_DIR$/cmict-monitor/cmict-monitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cmict-server/cmict-server.iml" filepath="$PROJECT_DIR$/cmict-server/cmict-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cmict-server/cmict-server-system/cmict-server-system.iml" filepath="$PROJECT_DIR$/cmict-server/cmict-server-system/cmict-server-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cmict_cloud_base.iml" filepath="$PROJECT_DIR$/.idea/cmict_cloud_base.iml" />
+    </modules>
+  </component>
+</project>
