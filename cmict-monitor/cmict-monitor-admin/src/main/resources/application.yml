@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: Cmict-Monitor-Admin
+    name: FEBS-Monitor-Admin
   boot:
     admin:
       ui:
