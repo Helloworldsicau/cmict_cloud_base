@@ -12,7 +12,6 @@
         <module>../cmict-auth</module>
         <module>../cmict-gateway</module>
         <module>../cmict-server</module>
-        <module>../cmict-monitor</module>
     </modules>
     <packaging>pom</packaging>
     <name>cmict-cloud</name>

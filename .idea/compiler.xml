@@ -7,12 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="cmict-auth" />
         <module name="cmict-server-system" />
-        <module name="cmict-activiti" />
-        <module name="cmict-common-core" />
         <module name="cmict-monitor-admin" />
+        <module name="cmict-common-core" />
         <module name="cmict-gateway" />
+        <module name="monitor" />
+        <module name="cmict-activiti" />
+        <module name="cmict-auth" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -26,6 +27,7 @@
       <module name="cmict-monitor-admin" target="1.8" />
       <module name="cmict-server" target="1.8" />
       <module name="cmict-server-system" target="1.8" />
+      <module name="monitor" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -37,6 +39,7 @@
       <module name="cmict-monitor" options="-parameters" />
       <module name="cmict-monitor-admin" options="-parameters" />
       <module name="cmict-server-system" options="-parameters" />
+      <module name="monitor" options="-parameters" />
     </option>
   </component>
 </project>

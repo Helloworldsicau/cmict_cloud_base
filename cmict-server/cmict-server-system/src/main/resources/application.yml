@@ -2,6 +2,12 @@ server:
   port: 8201
 
 spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:8401
+        username: admin
+        password: 1234
   application:
     name: CMICT-Server-System
 
@@ -35,3 +41,18 @@ hystrix:
 logging:
   level:
     com.cmict.server.system.feign.HornClient: DEBUG
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: "@project.description@"
+    version: "@project.version@"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS

@@ -9,6 +9,6 @@ spring:
         server-addr: 127.0.0.1:8848
   datasource:
     username: root
-    password: wmh19960102
+    password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/a?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8

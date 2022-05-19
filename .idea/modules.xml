@@ -13,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/cmict-server/cmict-server.iml" filepath="$PROJECT_DIR$/cmict-server/cmict-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/cmict-server/cmict-server-system/cmict-server-system.iml" filepath="$PROJECT_DIR$/cmict-server/cmict-server-system/cmict-server-system.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/cmict_cloud_base.iml" filepath="$PROJECT_DIR$/.idea/cmict_cloud_base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cmict-monitor/cmict-monitor-admin/monitor.iml" filepath="$PROJECT_DIR$/cmict-monitor/cmict-monitor-admin/monitor.iml" />
     </modules>
   </component>
 </project>

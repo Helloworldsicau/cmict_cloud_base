@@ -1,6 +1,12 @@
 server:
   port: 8301
 spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:8401
+        username: admin
+        password: 1234
   application:
     name: CMICT-Gateway
   cloud:
@@ -51,3 +57,18 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 3000
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: "@project.description@"
+    version: "@project.version@"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
