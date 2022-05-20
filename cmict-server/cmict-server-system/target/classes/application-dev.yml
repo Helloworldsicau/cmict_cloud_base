@@ -27,7 +27,7 @@ spring:
       datasource:
         base:
           username: root
-          password: 1234
+          password: wmh19960102
           driver-class-name: com.mysql.cj.jdbc.Driver
           url: jdbc:mysql://localhost:3306/a?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
       p6spy: true
@@ -52,3 +52,19 @@ mas:
   id: 123
   pwd: 456
   serviceId: 789
+
+cmict:
+  doc:
+    enable: true
+    title: ${spring.application.name}文档
+    base-package: cc.mrbird.febs.server.hello.controller
+    description: ${febs.doc.title}
+    name: MrBird
+    email: 852252810@qq.com
+    url: https://mrbird.cc
+    version: 2.0-RELEASE
+  cloud:
+    security:
+      enable: true
+      anon-uris: /v2/api-docs,/v2/api-docs-ext
+

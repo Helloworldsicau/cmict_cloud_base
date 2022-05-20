@@ -33,7 +33,7 @@ spring:
         datasource:
           base:
             username: root
-            password: 1234
+            password: wmh19960102
             driver-class-name: com.mysql.cj.jdbc.Driver
             url: jdbc:mysql://localhost:3306/a?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
 mas:

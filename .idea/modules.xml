@@ -7,6 +7,8 @@
       <module fileurl="file://$PROJECT_DIR$/cmict-cloud/cmict-cloud.iml" filepath="$PROJECT_DIR$/cmict-cloud/cmict-cloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/cmict-common/cmict-common.iml" filepath="$PROJECT_DIR$/cmict-common/cmict-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/cmict-common/cmict-common-core/cmict-common-core.iml" filepath="$PROJECT_DIR$/cmict-common/cmict-common-core/cmict-common-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cmict-common/cmict-common-doc/cmict-common-doc.iml" filepath="$PROJECT_DIR$/cmict-common/cmict-common-doc/cmict-common-doc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cmict-common/cmict-common-doc-starter/cmict-common-doc-starter.iml" filepath="$PROJECT_DIR$/cmict-common/cmict-common-doc-starter/cmict-common-doc-starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/cmict-gateway/cmict-gateway.iml" filepath="$PROJECT_DIR$/cmict-gateway/cmict-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/cmict-monitor/cmict-monitor.iml" filepath="$PROJECT_DIR$/cmict-monitor/cmict-monitor.iml" />
       <module fileurl="file://$PROJECT_DIR$/cmict-monitor/cmict-monitor-admin/cmict-monitor-admin.iml" filepath="$PROJECT_DIR$/cmict-monitor/cmict-monitor-admin/cmict-monitor-admin.iml" />

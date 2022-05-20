@@ -33,13 +33,13 @@
         <nimbus-jose-jwt.version>8.19</nimbus-jose-jwt.version>
         <easy-captcha.version>1.6.2</easy-captcha.version>
         <mybatis-plus-boot-starter.version>3.2.0</mybatis-plus-boot-starter.version>
-        <swagger-annotations.version>1.5.22</swagger-annotations.version>
         <easyexcel.version>2.2.6</easyexcel.version>
         <hutool-all.version>5.6.1</hutool-all.version>
-        <swagger-models.version>1.5.21</swagger-models.version>
-        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <dynamic-datasource-spring-boot-starter.version>2.5.7</dynamic-datasource-spring-boot-starter.version>
         <p6spy.version>3.8.1</p6spy.version>
+        <knife4j.version>2.0.2</knife4j.version>
+        <springfox.version>2.9.2</springfox.version>
+        <swagger.version>1.5.21</swagger.version>
     </properties>
 
     <dependencyManagement>

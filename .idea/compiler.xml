@@ -7,13 +7,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="cmict-auth" />
+        <module name="cmict-activiti" />
+        <module name="cmict-gateway" />
+        <module name="cmict-common-core" />
         <module name="cmict-server-system" />
         <module name="cmict-monitor-admin" />
-        <module name="cmict-common-core" />
-        <module name="cmict-gateway" />
+        <module name="cmict-common-doc" />
         <module name="monitor" />
-        <module name="cmict-activiti" />
-        <module name="cmict-auth" />
+        <module name="cmict-common-doc-starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -22,6 +24,8 @@
       <module name="cmict-cloud" target="1.8" />
       <module name="cmict-common" target="1.8" />
       <module name="cmict-common-core" target="1.8" />
+      <module name="cmict-common-doc" target="1.8" />
+      <module name="cmict-common-doc-starter" target="1.8" />
       <module name="cmict-gateway" target="1.8" />
       <module name="cmict-monitor" target="1.8" />
       <module name="cmict-monitor-admin" target="1.8" />
@@ -35,6 +39,8 @@
       <module name="cmict-activiti" options="-parameters" />
       <module name="cmict-auth" options="-parameters" />
       <module name="cmict-common-core" options="-parameters" />
+      <module name="cmict-common-doc" options="-parameters" />
+      <module name="cmict-common-doc-starter" options="-parameters" />
       <module name="cmict-gateway" options="-parameters" />
       <module name="cmict-monitor" options="-parameters" />
       <module name="cmict-monitor-admin" options="-parameters" />
