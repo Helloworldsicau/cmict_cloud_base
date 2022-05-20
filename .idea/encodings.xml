@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/cmict-auth/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cmict-common/cmict-common-core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cmict-common/cmict-common-doc-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cmict-common/cmict-common-redis-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cmict-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cmict-monitor/cmict-monitor-admin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cmict-server/cmict-activiti/src/main/java" charset="UTF-8" />

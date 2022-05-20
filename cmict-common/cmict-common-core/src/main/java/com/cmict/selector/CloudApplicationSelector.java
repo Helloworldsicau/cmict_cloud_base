@@ -1,7 +1,6 @@
 package com.cmict.selector;
 
 import com.cmict.configure.CmictAuthExceptionConfigure;
-import com.cmict.configure.LettuceRedisConfigure;
 import com.cmict.configure.OAuth2FeignConfigure;
 import com.cmict.configure.ServerProtectConfigure;
 import com.cmict.untils.SpringContextUtil;
@@ -19,7 +18,6 @@ public class CloudApplicationSelector implements ImportSelector {
                 CmictAuthExceptionConfigure.class.getName(),
                 OAuth2FeignConfigure.class.getName(),
                 ServerProtectConfigure.class.getName(),
-                LettuceRedisConfigure.class.getName(),
                 SpringContextUtil.class.getName()
         };
     }

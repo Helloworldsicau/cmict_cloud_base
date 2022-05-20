@@ -1,15 +1,4 @@
 spring:
-  redis:
-    database: 0
-    host: 127.0.0.1
-    port: 6379
-    lettuce:
-      pool:
-        min-idle: 8
-        max-idle: 500
-        max-active: 2000
-        max-wait: 10000
-    timeout: 5000
   cloud:
     nacos:
       discovery:
@@ -67,4 +56,3 @@ cmict:
     security:
       enable: true
       anon-uris: /v2/api-docs,/v2/api-docs-ext
-

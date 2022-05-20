@@ -18,6 +18,7 @@
         <module>cmict-common-core</module>
         <module>cmict-common-doc</module>
         <module>cmict-common-doc-starter</module>
+        <module>cmict-cpmmon-redis-starter</module>
     </modules>
 
 

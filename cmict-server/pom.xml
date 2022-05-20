@@ -48,6 +48,11 @@
             <artifactId>cmict-common-doc-starter</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.cmict</groupId>
+            <artifactId>cmict-commom-redis-starter</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

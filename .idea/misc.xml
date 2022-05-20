@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/cmict-monitor/cmict-monitor-admin/pom.xml" />
         <option value="$PROJECT_DIR$/cmict-common/cmict-common-doc-starter/pom.xml" />
         <option value="$PROJECT_DIR$/cmict-common/cmict-common-doc/pom.xml" />
+        <option value="$PROJECT_DIR$/cmict-common/cmict-cpmmon-redis-starter/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

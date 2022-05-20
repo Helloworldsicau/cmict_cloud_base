@@ -42,7 +42,8 @@ public class SecurityController {
     private ConsumerTokenServices consumerTokenServices;
     @Autowired
     private ValidateCodeService validateCodeService;
-    @Autowired
+    @Autowired(required = false)
+
     private RedisService redisService;
     @Autowired
     private SecurityService securityService;
